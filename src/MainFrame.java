@@ -18,6 +18,7 @@ import javax.swing.JRadioButton;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.EtchedBorder;
 
+import org.apache.log4j.Logger;
 
 public class MainFrame extends JFrame implements ActionListener {
 
@@ -41,6 +42,9 @@ public class MainFrame extends JFrame implements ActionListener {
 	private static String IMAGE_PATH = "res/ic_launcher.png";
 
 	public MainFrame() {
+		Logger log = Logger.getLogger(MainFrame.class.getName());
+		log.debug("Test");
+		log.trace("Test 2");
 		initFrame();
 		initStartSettings();	
 	}
