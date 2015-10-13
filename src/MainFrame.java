@@ -18,12 +18,11 @@ import javax.swing.JRadioButton;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.EtchedBorder;
 
+import org.apache.log4j.Logger;
 
 public class MainFrame extends JFrame implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
-	
-
 	
 	private JPanel  contentPane;
 	private JButton btnStartServer;
@@ -42,6 +41,7 @@ public class MainFrame extends JFrame implements ActionListener {
 	
 	
 	public static void main(String[] args) {
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -58,6 +58,9 @@ public class MainFrame extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public MainFrame() {
+		Logger log = Logger.getLogger(MainFrame.class.getName());
+		log.debug("Test");
+		log.trace("Test 2");
 		initFrame();
 		initStartSettings();
 		
