@@ -23,13 +23,13 @@ public class MainFrame extends JFrame implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 	
-
-	
 	private JPanel  contentPane;
 	private JButton btnStartServer;
 	private JButton btnStopServer;
 	private JButton btnMinimizeServer;
 	private JButton btnExit;
+	private JButton btnOpenLogFile;
+	
 	private JLabel  lblCurrentStatus;
 	private JLabel  lblCurrentCompName;
 	private JLabel  lblCurrentIP;
@@ -39,30 +39,11 @@ public class MainFrame extends JFrame implements ActionListener {
 	private String hostName = "Unknown";
 	private String IP="";	
 	private static String IMAGE_PATH = "res/ic_launcher.png";
-	
-	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MainFrame frame = new MainFrame();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
-	/**
-	 * Create the frame.
-	 */
 	public MainFrame() {
 		initFrame();
-		initStartSettings();
-		
+		initStartSettings();	
 	}
-
 
 	private void initFrame() {
 		setTitle("MyPrompter Server");
@@ -142,6 +123,10 @@ public class MainFrame extends JFrame implements ActionListener {
 		ButtonGroup radioBtnGroup = new ButtonGroup();
 		radioBtnGroup.add(rdbtnWifi);
 		radioBtnGroup.add(rdbtnBluetooth);	
+		
+		btnOpenLogFile = new JButton("Open log file");
+		btnOpenLogFile.setBounds(10, 166, 99, 23);
+		mainPanel.add(btnOpenLogFile);
 	}
 	
 
@@ -166,8 +151,8 @@ public class MainFrame extends JFrame implements ActionListener {
 				minimizeFrame();
 			} else if (btnClicked == btnExit) {
 				exitServer();
-			} else {
-				
+			} else if (btnClicked == btnOpenLogFile) {
+				exitServer();
 			}
 	}
 
@@ -208,13 +193,5 @@ public class MainFrame extends JFrame implements ActionListener {
 		}
 		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }
